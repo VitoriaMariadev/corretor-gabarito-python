@@ -7,8 +7,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabarito</title>
-    <link rel="stylesheet" href="{% static 'app/css/homeStyles.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/loginStyles.css' %}">
+
     <!-- Link para o seu arquivo CSS -->
+
+    <script>
+
+        // togglePassword.js
+        const togglePassword = () => {
+            var passwordField = document.getElementById('password');
+            var passwordFieldIcon = document.getElementById('eyeIcon');
+            console.log(passwordFieldIcon)
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordFieldIcon.src = "{% static 'app/Images/eyeClose.svg' %}";
+            } else {
+                passwordField.type = "password";
+                passwordFieldIcon.src = "{% static 'app/Images/eye.svg' %}";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -31,7 +50,12 @@
                     </div>
                     <p>Senha</p>
                     <div class="container-right-form-password">
-                        <input type="password" name="password">
+                        <input type="password" name="password" id="password">
+                        <div class="container-right-form-password-icon" onclick="togglePassword()" >
+                            
+                            <img src="{% static 'app/Images/eye.svg' %}" alt="eye" id="eyeIcon">
+                        
+                        </div>
                     </div>
                     <div class="container-right-button">
                         <button type="submit">Login</button>

@@ -21,7 +21,7 @@ def home(request):
         except Create.DoesNotExist:
             # Se não houver usuário com esse nome
             print("Usuário não encontrado.")
-            return render(request, 'app/home.html')
+            return render(request, 'app/login.html')
 
         # Verificar se a senha fornecida corresponde à senha armazenada
         if password == user.password:
@@ -31,6 +31,6 @@ def home(request):
             # Se a senha está incorreta
             print("Senha incorreta. Falha na autenticação.")
         
-        return render(request, 'app/home.html')
+        return render(request, 'app/login.html')
     else:
-        return render(request, 'app/home.html')
+        return render(request, 'app/login.html')
