@@ -1,0 +1,48 @@
+{% load static %}
+<!-- necessária para carregar arquivos estáticos -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabarito</title>
+    <link rel="stylesheet" href="{% static 'app/css/homeStyles.css' %}">
+    <!-- Link para o seu arquivo CSS -->
+</head>
+<body>
+    <div class="container">
+        <div class="container-left">
+            <div class="container-left-title">
+                <h1>Login</h1>
+            </div>
+            <img src="{% static 'app/images/login.svg' %}" alt="login">
+        </div>
+        <div class="container-right">
+            <div class="container-right-user">
+                <img src="{% static 'app/images/avatar.svg' %}" alt="">
+            </div>
+                <form method="post" action="{% url 'home' %}" class="container-right-form">
+                    {% csrf_token %}
+                    <!-- Token CSRF para proteção -->
+                    <p>Nome</p>
+                    <div class="container-right-form-name">
+                        <input type="text" name="name">
+                    </div>
+                    <p>Senha</p>
+                    <div class="container-right-form-password">
+                        <input type="password" name="password">
+                    </div>
+                    <div class="container-right-button">
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+            <div class="container-right-create">
+                <a href="">
+                    <p>Não tem uma conta? Cadastre-se</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
